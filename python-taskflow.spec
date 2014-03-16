@@ -1,6 +1,13 @@
 # Created by pyp2rpm-1.0.1
 %global pypi_name taskflow
 
+# see https://fedoraproject.org/wiki/Packaging:Python#Macros
+%if 0%{?rhel} && 0%{?rhel} <= 6
+%{!?__python2: %global __python2 /usr/bin/python2}
+%{!?python2_sitelib: %global python2_sitelib %(%{__python2} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
+%{!?python2_sitearch: %global python2_sitearch %(%{__python2} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))")}
+%endif
+
 Name:           python-%{pypi_name}
 Version:        0.1.2
 Release:        5%{?dist}
@@ -13,7 +20,11 @@ BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+%if 0%{?rhel} == 6
+BuildRequires:  python-sphinx10
+%else
 BuildRequires:  python-sphinx
+%endif
 
 Requires:       python-anyjson
 Requires:       python-iso8601
@@ -54,15 +65,19 @@ rm -rf {test-,}requirements.txt
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 # generate html docs
+%if 0%{?rhel} == 6
+sphinx-1.0-build doc html
+%else
 sphinx-build doc html
+%endif
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 
 %files
 %doc README.md LICENSE
-%{python_sitelib}/%{pypi_name}
-%{python_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%{python2_sitelib}/%{pypi_name}
+%{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %files doc
 %doc html
