@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.1.2
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -21,7 +21,7 @@ Requires:       python-six
 Requires:       python-babel
 Requires:       python-stevedore
 Requires:       python-futures
-Requires:       python-networkx
+Requires:       python-networkx-core
 
 %description
 A library to do [jobs, tasks, flows] in a HA manner using
@@ -68,5 +68,8 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Sun Mar 16 2014 Padraig Brady <P@draigBrady.com> - 0.1.2-5
+- Reduce dependency to python-networkx-core subpackage
+
 * Wed Jan 29 2014 Padraig Brady <P@draigBrady.com> - 0.1.2-4
 - Initial package.
