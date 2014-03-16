@@ -45,11 +45,6 @@ rm -rf %{pypi_name}.egg-info
 # to distutils requires_dist config
 rm -rf {test-,}requirements.txt
 
-# generate html docs
-sphinx-build doc html
-# remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
-
 
 %build
 %{__python2} setup.py build
@@ -57,6 +52,11 @@ rm -rf html/.{doctrees,buildinfo}
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
+
+# generate html docs
+sphinx-build doc html
+# remove the sphinx-build leftovers
+rm -rf html/.{doctrees,buildinfo}
 
 
 %files
