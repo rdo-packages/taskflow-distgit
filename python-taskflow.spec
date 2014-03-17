@@ -39,7 +39,7 @@ A library to do [jobs, tasks, flows] in a HA manner using
 different backends to be used with OpenStack projects.
 
 %package doc
-Summary:          Documentation for OpenStack Compute
+Summary:          Documentation for Taskflow
 Group:            Documentation
 
 %description doc
