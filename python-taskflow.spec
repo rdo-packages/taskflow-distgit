@@ -10,12 +10,13 @@
 
 Name:           python-%{pypi_name}
 Version:        0.1.2
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
 URL:            https://launchpad.net/taskflow
 Source0:        http://pypi.python.org/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Patch0:         remove-pbr.patch
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
@@ -49,6 +50,11 @@ This package contains the associated documentation.
 
 %prep
 %setup -q -n %{pypi_name}-%{version}
+
+%patch0 -p1
+
+sed -i 's/REDHATVERSION/%{version}/; s/REDHATRELEASE/%{release}/' %{pypi_name}/version.py
+
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -83,6 +89,9 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Wed May 07 2014 Pádraig Brady <pbrady@redhat.com> - 0.1.2-6
+- Remove dependence on pbr
+
 * Sun Mar 16 2014 Padraig Brady <P@draigBrady.com> - 0.1.2-5
 - Reduce dependency to python-networkx-core subpackage
 
