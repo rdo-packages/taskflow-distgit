@@ -10,7 +10,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.1.2
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -89,6 +89,9 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.2-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Wed May 07 2014 Pádraig Brady <pbrady@redhat.com> - 0.1.2-6
 - Remove dependence on pbr
 
