@@ -21,6 +21,7 @@ BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  python-oslo-sphinx
 %if 0%{?rhel} == 6
 BuildRequires:  python-sphinx10
 %else
@@ -49,7 +50,7 @@ different backends to be used with OpenStack projects.
 This package contains the associated documentation.
 
 %prep
-%setup -q -n %{pypi_name}-%{version}
+%setup -q -n %{pypi_name}-%{upstream_version}
 
 %patch0 -p1
 
@@ -72,18 +73,18 @@ rm -rf {test-,}requirements.txt
 
 # generate html docs
 %if 0%{?rhel} == 6
-sphinx-1.0-build doc html
+sphinx-1.0-build doc/source html
 %else
-sphinx-build doc html
+sphinx-build doc/source html
 %endif
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 
 %files
-%doc README.md LICENSE
+%doc README.rst LICENSE
 %{python2_sitelib}/%{pypi_name}
-%{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%{python2_sitelib}/%{pypi_name}-*.egg-info
 
 %files doc
 %doc html
