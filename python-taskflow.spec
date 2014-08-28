@@ -9,8 +9,8 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        0.1.2
-Release:        7%{?dist}
+Version:        0.3.21
+Release:        1%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -21,6 +21,7 @@ BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  python-oslo-sphinx
 %if 0%{?rhel} == 6
 BuildRequires:  python-sphinx10
 %else
@@ -53,6 +54,7 @@ This package contains the associated documentation.
 
 %patch0 -p1
 
+sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 sed -i 's/REDHATVERSION/%{version}/; s/REDHATRELEASE/%{release}/' %{pypi_name}/version.py
 
 # Remove bundled egg-info
@@ -72,16 +74,16 @@ rm -rf {test-,}requirements.txt
 
 # generate html docs
 %if 0%{?rhel} == 6
-sphinx-1.0-build doc html
+sphinx-1.0-build doc/source html
 %else
-sphinx-build doc html
+sphinx-build doc/source html
 %endif
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 
 %files
-%doc README.md LICENSE
+%doc README.rst LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
@@ -89,6 +91,9 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Thu Aug 28 2014 Pádraig Brady <pbrady@redhat.com> - 0.3.21-1
+- Latest upstream
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.2-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
