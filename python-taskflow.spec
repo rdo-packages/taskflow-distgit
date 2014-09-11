@@ -16,7 +16,7 @@ Summary:        Taskflow structured state management library
 License:        ASL 2.0
 URL:            https://launchpad.net/taskflow
 Source0:        http://pypi.python.org/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-Patch0:         remove-pbr.patch
+Patch0:         0001-Remove-runtime-dependency-on-pbr.patch
 BuildArch:      noarch
 
 BuildRequires:  python2-devel

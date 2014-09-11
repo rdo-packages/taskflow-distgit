@@ -1,0 +1,61 @@
+From ca39ff5428187b0744831d7c344dd073750c73dc Mon Sep 17 00:00:00 2001
+From: Derek Higgins <derekh@redhat.com>
+Date: Thu, 11 Sep 2014 09:16:25 +0000
+Subject: [PATCH] Remove runtime dependency on pbr
+
+---
+ taskflow/version.py | 36 +++++++++++++++++++++---------------
+ 1 file changed, 21 insertions(+), 15 deletions(-)
+
+diff --git a/taskflow/version.py b/taskflow/version.py
+index 7f7fcd9..bfcda5a 100644
+--- a/taskflow/version.py
++++ b/taskflow/version.py
+@@ -14,23 +14,29 @@
+ #    License for the specific language governing permissions and limitations
+ #    under the License.
+ 
+-import pkg_resources
++class VersionInfo(object):
++    version = "REDHATVERSION"
++    release = "REDHATRELEASE"
++    def version_string(self):
++        return self.version
++    def cached_version_string(self):
++        return self.version
+ 
+-TASK_VENDOR = "OpenStack Foundation"
+-TASK_PRODUCT = "OpenStack TaskFlow"
+-TASK_PACKAGE = None  # OS distro package version suffix
++    def release_string(self):
++        return self.release
+ 
+-try:
+-    from pbr import version as pbr_version
+-    _version_info = pbr_version.VersionInfo('taskflow')
+-    version_string = _version_info.version_string
+-except ImportError:
+-    _version_info = pkg_resources.get_distribution('taskflow')
+-    version_string = lambda: _version_info.version
++    def canonical_version_string(self):
++        return self.version
++
++    def version_string_with_vcs(self):
++        return self.release
++
++
++version_info = VersionInfo()
++
++def version_string():
++    return version_info.version
+ 
+ 
+ def version_string_with_package():
+-    if TASK_PACKAGE is None:
+-        return version_string()
+-    else:
+-        return "%s-%s" % (version_string(), TASK_PACKAGE)
++    return "%s-%s" % (version_info.version, version_info.release)
+-- 
+1.9.3
+
