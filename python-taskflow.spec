@@ -16,7 +16,6 @@ Summary:        Taskflow structured state management library
 License:        ASL 2.0
 URL:            https://launchpad.net/taskflow
 Source0:        http://pypi.python.org/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-Patch0:         0001-Remove-runtime-dependency-on-pbr.patch
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
@@ -35,6 +34,9 @@ Requires:       python-babel
 Requires:       python-stevedore
 Requires:       python-futures
 Requires:       python-networkx-core
+Requires:       python-oslo-serialization
+Requires:       python-oslo-utils
+Requires:       python-jsonschema
 
 %description
 A library to do [jobs, tasks, flows] in a HA manner using
@@ -51,10 +53,6 @@ This package contains the associated documentation.
 
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
-
-%patch0 -p1
-
-sed -i 's/REDHATVERSION/%{version}/; s/REDHATRELEASE/%{release}/' %{pypi_name}/version.py
 
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
@@ -90,6 +88,11 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Sat Jan 17 2015 Haikel Guemar <hguemar@fedoraproject.org> 0.5.0-1
+- Update to upstream 0.5.0
+- Drop remove runtime dep on pbr patch
+- Add new requirements
+
 * Thu Aug 28 2014 Pádraig Brady <pbrady@redhat.com> - 0.3.21-1
 - Latest upstream
 
