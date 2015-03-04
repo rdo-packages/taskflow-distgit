@@ -37,6 +37,8 @@ Requires:       python-networkx-core
 Requires:       python-oslo-serialization
 Requires:       python-oslo-utils
 Requires:       python-jsonschema
+Requires:       python-enum34
+Requires:       python-debtcollector
 
 %description
 A library to do [jobs, tasks, flows] in a HA manner using
