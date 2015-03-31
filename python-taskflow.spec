@@ -9,7 +9,7 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        0.5.0
+Version:        0.7.1
 Release:        1%{?dist}
 Summary:        Taskflow structured state management library
 
@@ -88,6 +88,9 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Tue Mar 31 2015 Haikel Guemar <hguemar@fedoraproject.org> 0.7.1-1
+- Update to upstream 0.7.1
+
 * Sat Jan 17 2015 Haikel Guemar <hguemar@fedoraproject.org> 0.5.0-1
 - Update to upstream 0.5.0
 - Drop remove runtime dep on pbr patch
