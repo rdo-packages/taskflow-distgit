@@ -10,7 +10,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.7.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
