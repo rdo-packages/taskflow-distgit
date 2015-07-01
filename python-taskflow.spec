@@ -10,7 +10,7 @@
 
 Name:           python-%{pypi_name}
 Version:        XXX
-Release:        XXX{?dist}
+Release:        XXX
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -90,22 +90,3 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
-* Sat Jan 17 2015 Haikel Guemar <hguemar@fedoraproject.org> 0.5.0-1
-- Update to upstream 0.5.0
-- Drop remove runtime dep on pbr patch
-- Add new requirements
-
-* Thu Aug 28 2014 Pádraig Brady <pbrady@redhat.com> - 0.3.21-1
-- Latest upstream
-
-* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.1.2-7
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
-
-* Wed May 07 2014 Pádraig Brady <pbrady@redhat.com> - 0.1.2-6
-- Remove dependence on pbr
-
-* Sun Mar 16 2014 Padraig Brady <P@draigBrady.com> - 0.1.2-5
-- Reduce dependency to python-networkx-core subpackage
-
-* Wed Jan 29 2014 Padraig Brady <P@draigBrady.com> - 0.1.2-4
-- Initial package.
