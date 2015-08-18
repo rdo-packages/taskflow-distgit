@@ -22,12 +22,6 @@ BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
-BuildRequires:  python-oslo-sphinx
-%if 0%{?rhel} == 6
-BuildRequires:  python-sphinx10
-%else
-BuildRequires:  python-sphinx
-%endif
 
 Requires:       python-anyjson
 Requires:       python-automaton >= 0.2.0
@@ -56,6 +50,24 @@ different backends to be used with OpenStack projects.
 %package doc
 Summary:          Documentation for Taskflow
 Group:            Documentation
+
+BuildRequires:  python-oslo-sphinx
+%if 0%{?rhel} == 6
+BuildRequires:  python-sphinx10
+%else
+BuildRequires:  python-sphinx
+%endif
+
+# for docs build
+BuildRequires:       python-oslo-utils >= 1.9.0
+BuildRequires:       python-automaton >= 0.2.0
+BuildRequires:       python-cachetools >= 1.0.0
+BuildRequires:       python-contextlib2 >= 0.4.0
+BuildRequires:       python-futurist >= 0.1.2
+BuildRequires:       python-networkx-core
+#TODO ImportErrors during sphinx-build:
+#kazoo
+#redis
 
 %description doc
 A library to do [jobs, tasks, flows] in a HA manner using
