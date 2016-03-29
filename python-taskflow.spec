@@ -42,6 +42,7 @@ Requires:       python-jsonschema
 Requires:       python-enum34
 Requires:       python-debtcollector
 Requires:       python-automaton >= 0.5.0
+Requires:       python-networkx >= 1.10
 
 %description
 A library to do [jobs, tasks, flows] in a HA manner using
