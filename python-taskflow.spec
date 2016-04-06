@@ -59,6 +59,8 @@ This package contains the associated documentation.
 
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
+# TODO(apevec) remove once python-networking subpackaging is fixed
+sed -i /networkx.drawing/d taskflow/types/graph.py
 
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
