@@ -12,7 +12,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.30.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -35,7 +35,7 @@ Requires:       python-six
 Requires:       python-babel
 Requires:       python-stevedore
 Requires:       python-futures
-Requires:       python-networkx-core
+Requires:       python-networkx-core >= 1.10
 Requires:       python-oslo-serialization
 Requires:       python-oslo-utils
 Requires:       python-jsonschema
@@ -93,6 +93,9 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html
 
 %changelog
+* Fri May 06 2016 Eric Harney <eharney@redhat.com> 1.30.0-2
+- Add requirement for networkx >= 1.10
+
 * Wed Mar 23 2016 Haikel Guemar <hguemar@fedoraproject.org> 1.30.0-
 - Update to 1.30.0
 
