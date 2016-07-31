@@ -1,4 +1,9 @@
-# Created by pyp2rpm-1.0.1
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
+%if 0%{?fedora}
+%global with_python3 1
+%endif
+
 %global pypi_name taskflow
 
 # see https://fedoraproject.org/wiki/Packaging:Python#Macros
@@ -20,14 +25,15 @@ URL:            https://launchpad.net/taskflow
 Source0:        http://pypi.python.org/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
+%description
+A library to do [jobs, tasks, flows] in a HA manner using
+different backends to be used with OpenStack projects.
+
+
+%package -n python2-%{pypi_name}
+Summary:        Taskflow structured state management library
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
-BuildRequires:  python-oslo-sphinx
-%if 0%{?rhel} == 6
-BuildRequires:  python-sphinx10
-%else
-BuildRequires:  python-sphinx
-%endif
 
 Requires:       python-anyjson
 Requires:       python-iso8601
@@ -44,13 +50,47 @@ Requires:       python-debtcollector
 Requires:       python-automaton >= 0.5.0
 Requires:       python-networkx >= 1.10
 
-%description
+%{?python_provide:%python_provide python2-%{pypi_name}}
+
+%description -n python2-%{pypi_name}
 A library to do [jobs, tasks, flows] in a HA manner using
 different backends to be used with OpenStack projects.
 
+%if 0%{?with_python3}
+%package -n python3-%{pypi_name}
+Summary:        Taskflow structured state management library
+BuildRequires:  python3-devel
+BuildRequires:  python3-pbr
+
+Requires:       python3-anyjson
+Requires:       python3-iso8601
+Requires:       python3-six
+Requires:       python3-babel
+Requires:       python3-stevedore
+Requires:       python3-futures
+Requires:       python3-networkx-core
+Requires:       python3-oslo-serialization
+Requires:       python3-oslo-utils
+Requires:       python3-jsonschema
+Requires:       python3-enum34
+Requires:       python3-debtcollector
+Requires:       python3-automaton >= 0.5.0
+Requires:       python3-networkx >= 1.10
+
+%{?python_provide:%python_provide python3-%{pypi_name}}
+
+
+%description -n python3-%{pypi_name}
+A library to do [jobs, tasks, flows] in a HA manner using
+different backends to be used with OpenStack projects.
+%endif
+
+
 %package doc
 Summary:          Documentation for Taskflow
-Group:            Documentation
+BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-sphinx
+
 
 %description doc
 A library to do [jobs, tasks, flows] in a HA manner using
@@ -71,12 +111,10 @@ rm -rf {test-,}requirements.txt
 
 
 %build
-%{__python2} setup.py build
-
-
-%install
-%{__python2} setup.py install --skip-build --root %{buildroot}
-
+%py2_build
+%if 0%{?with_python3}
+%py3_build
+%endif
 # generate html docs
 %if 0%{?rhel} == 6
 sphinx-1.0-build doc/source html
@@ -87,13 +125,30 @@ sphinx-build doc/source html
 rm -rf html/.{doctrees,buildinfo}
 
 
-%files
-%doc README.rst LICENSE
+%install
+%py2_install
+%if 0%{?with_python3}
+%py3_install
+%endif
+
+
+%files -n python2-%{pypi_name}
+%doc README.rst
+%license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-*.egg-info
 
+%if 0%{?with_python3}
+%files -n python3-%{pypi_name}
+%doc README.rst
+%license LICENSE
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/%{pypi_name}-*.egg-info
+%endif
+
 %files doc
 %doc html
+%license LICENSE
 
 %changelog
 * Fri May 06 2016 Alan Pevec <apevec AT redhat.com> - 1.30.0-2
