@@ -17,7 +17,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.30.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -151,6 +151,9 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Sun Jul 31 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1.30.0-3
+- Add python3 subpackage
+
 * Fri May 06 2016 Alan Pevec <apevec AT redhat.com> - 1.30.0-2
 - Added python-networkx missing packages
 - Remove dependency on networkx.drawing
