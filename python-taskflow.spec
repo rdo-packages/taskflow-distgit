@@ -58,7 +58,6 @@ Requires:       python3-iso8601
 Requires:       python3-six
 Requires:       python3-babel
 Requires:       python3-stevedore
-Requires:       python3-futures
 Requires:       python3-networkx-core
 Requires:       python3-oslo-serialization
 Requires:       python3-oslo-utils
