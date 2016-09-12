@@ -13,7 +13,7 @@ Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
 URL:            https://launchpad.net/taskflow
-Source0:        http://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/t/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 BuildArch:      noarch
 
 %description
