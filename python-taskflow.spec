@@ -26,8 +26,6 @@ Summary:        Taskflow structured state management library
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 
-Requires:       python-anyjson
-Requires:       python-iso8601
 Requires:       python-six
 Requires:       python-babel
 Requires:       python-stevedore
@@ -40,6 +38,10 @@ Requires:       python-enum34
 Requires:       python-debtcollector
 Requires:       python-automaton >= 0.5.0
 Requires:       python-networkx >= 1.10
+Requires:       python-futurist >= 0.11.0
+Requires:       python-fasteners >= 0.7
+Requires:       python-tenacity >= 3.2.1
+Requires:       python-contextlib2 >= 0.4.0
 
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
@@ -53,8 +55,6 @@ Summary:        Taskflow structured state management library
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 
-Requires:       python3-anyjson
-Requires:       python3-iso8601
 Requires:       python3-six
 Requires:       python3-babel
 Requires:       python3-stevedore
@@ -66,6 +66,10 @@ Requires:       python3-enum34
 Requires:       python3-debtcollector
 Requires:       python3-automaton >= 0.5.0
 Requires:       python3-networkx >= 1.10
+Requires:       python3-futurist >= 0.11.0
+Requires:       python3-fasteners >= 0.7
+Requires:       python3-tenacity >= 3.2.1
+Requires:       python3-contextlib2 >= 0.4.0
 
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
