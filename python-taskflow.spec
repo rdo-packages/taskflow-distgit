@@ -31,8 +31,8 @@ Requires:       python-babel
 Requires:       python-stevedore
 Requires:       python-futures
 Requires:       python-networkx-core
-Requires:       python-oslo-serialization
-Requires:       python-oslo-utils
+Requires:       python-oslo-serialization >= 1.10.0
+Requires:       python-oslo-utils >= 3.18.0
 Requires:       python-jsonschema
 Requires:       python-enum34
 Requires:       python-debtcollector
@@ -42,6 +42,7 @@ Requires:       python-futurist >= 0.11.0
 Requires:       python-fasteners >= 0.7
 Requires:       python-tenacity >= 3.2.1
 Requires:       python-contextlib2 >= 0.4.0
+Requires:       python-cachetools >= 1.1.0
 
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
@@ -59,8 +60,8 @@ Requires:       python3-six
 Requires:       python3-babel
 Requires:       python3-stevedore
 Requires:       python3-networkx-core
-Requires:       python3-oslo-serialization
-Requires:       python3-oslo-utils
+Requires:       python3-oslo-serialization >= 1.10.0
+Requires:       python3-oslo-utils >= 3.18.0
 Requires:       python3-jsonschema
 Requires:       python3-enum34
 Requires:       python3-debtcollector
@@ -70,6 +71,7 @@ Requires:       python3-futurist >= 0.11.0
 Requires:       python3-fasteners >= 0.7
 Requires:       python3-tenacity >= 3.2.1
 Requires:       python3-contextlib2 >= 0.4.0
+Requires:       python3-cachetools >= 1.1.0
 
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
