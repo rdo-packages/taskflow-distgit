@@ -25,9 +25,9 @@ different backends to be used with OpenStack projects.
 Summary:        Taskflow structured state management library
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  python-babel
 
 Requires:       python-six
-Requires:       python-babel
 Requires:       python-stevedore
 Requires:       python-futures
 Requires:       python-networkx-core
@@ -55,9 +55,9 @@ different backends to be used with OpenStack projects.
 Summary:        Taskflow structured state management library
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
+BuildRequires:  python3-babel
 
 Requires:       python3-six
-Requires:       python3-babel
 Requires:       python3-stevedore
 Requires:       python3-networkx-core
 Requires:       python3-oslo-serialization >= 1.10.0
