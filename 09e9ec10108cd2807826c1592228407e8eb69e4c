@@ -16,6 +16,24 @@
       "revId": "09e9ec10108cd2807826c1592228407e8eb69e4c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa7fdbe_1a60bd31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-07-11T09:34:06Z",
+      "side": 1,
+      "message": "need to remove upstream-id link after it gets merged upstream, otherwise check jobs on this review will miss later changes",
+      "parentUuid": "9aa7fdbe_fa83f9c9",
+      "revId": "09e9ec10108cd2807826c1592228407e8eb69e4c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
