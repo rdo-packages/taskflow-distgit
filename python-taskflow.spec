@@ -86,6 +86,7 @@ different backends to be used with OpenStack projects.
 %package doc
 Summary:          Documentation for Taskflow
 BuildRequires:  python-openstackdocstheme
+BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-utils
 BuildRequires:  python-stevedore
