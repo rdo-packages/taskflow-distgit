@@ -25,6 +25,7 @@ different backends to be used with OpenStack projects.
 Summary:        Taskflow structured state management library
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  git
 
 Requires:       python-six
 Requires:       python-babel
@@ -84,8 +85,26 @@ different backends to be used with OpenStack projects.
 
 %package doc
 Summary:          Documentation for Taskflow
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-sphinx
+BuildRequires:  python-oslo-utils
+BuildRequires:  python-stevedore
+BuildRequires:  python-enum34
+BuildRequires:  python-oslo-serialization
+BuildRequires:  python-futurist
+BuildRequires:  python-fasteners
+BuildRequires:  python-contextlib2
+BuildRequires:  python-jsonschema
+BuildRequires:  python-automaton
+BuildRequires:  python-kombu
+BuildRequires:  python-networkx
+BuildRequires:  python-kazoo
+BuildRequires:  python-redis
+BuildRequires:  python-cachetools
+BuildRequires:  python-tenacity
+BuildRequires:  python-alembic
+BuildRequires:  python-sqlalchemy-utils
+
 
 
 %description doc
@@ -94,7 +113,7 @@ different backends to be used with OpenStack projects.
 This package contains the associated documentation.
 
 %prep
-%setup -q -n %{pypi_name}-%{upstream_version}
+%autosetup -n %{pypi_name}-%{upstream_version} -S git
 # TODO(apevec) remove once python-networking subpackaging is fixed
 sed -i /networkx.drawing/d taskflow/types/graph.py
 
@@ -112,9 +131,9 @@ rm -rf {test-,}requirements.txt
 %py3_build
 %endif
 # generate html docs
-sphinx-build doc/source html
+%{__python2} setup.py build_sphinx -b html
 # remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
+rm -rf doc/build/html/.{doctrees,buildinfo}
 
 
 %install
@@ -139,7 +158,7 @@ rm -rf html/.{doctrees,buildinfo}
 %endif
 
 %files doc
-%doc html
+%doc doc/build/html
 %license LICENSE
 
 %changelog
