@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_fa83f9c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-07-11T09:28:55Z",
+      "side": 1,
+      "message": "not released yet, post latest Pike pin:\n  pike-uc:\n    source-branch: 2.13.0",
+      "revId": "09e9ec10108cd2807826c1592228407e8eb69e4c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
