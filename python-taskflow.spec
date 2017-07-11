@@ -7,7 +7,7 @@
 %global pypi_name taskflow
 
 Name:           python-%{pypi_name}
-Version:        2.6.0
+Version:        2.6.1
 Release:        1%{?dist}
 Summary:        Taskflow structured state management library
 
@@ -137,6 +137,9 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Tue Jul 11 2017 rdo-trunk <javier.pena@redhat.com> 2.6.1-1
+- Update to 2.6.1
+
 * Mon Sep 12 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.6.0-1
 - Update to 2.6.0
 
