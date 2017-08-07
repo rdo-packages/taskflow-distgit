@@ -33,7 +33,7 @@ Requires:       python-stevedore
 Requires:       python-futures
 Requires:       python-networkx-core
 Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-utils >= 3.18.0
+Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-jsonschema
 Requires:       python-enum34
 Requires:       python-debtcollector
@@ -62,7 +62,7 @@ Requires:       python3-six
 Requires:       python3-stevedore
 Requires:       python3-networkx-core
 Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 3.18.0
+Requires:       python3-oslo-utils >= 3.20.0
 Requires:       python3-jsonschema
 Requires:       python3-enum34
 Requires:       python3-debtcollector
