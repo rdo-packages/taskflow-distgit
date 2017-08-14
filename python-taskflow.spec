@@ -7,8 +7,8 @@
 %global pypi_name taskflow
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        2.14.0
+Release:        1%{?dist}
 Summary:        Taskflow structured state management library
 
 License:        ASL 2.0
@@ -163,3 +163,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Mon Aug 14 2017 Alfredo Moralejo <amoralej@redhat.com> 2.14.0-1
+- Update to 2.14.0
+
