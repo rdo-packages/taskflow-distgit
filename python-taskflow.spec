@@ -88,6 +88,7 @@ Summary:          Documentation for Taskflow
 BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-sphinx
+BuildRequires:  graphviz
 BuildRequires:  python-oslo-utils
 BuildRequires:  python-stevedore
 BuildRequires:  python-enum34
