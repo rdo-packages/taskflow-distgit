@@ -106,7 +106,7 @@ BuildRequires:  python-cachetools
 BuildRequires:  python-tenacity
 BuildRequires:  python-alembic
 BuildRequires:  python-sqlalchemy-utils
-
+BuildRequires:  openstack-macros
 
 
 %description doc
@@ -124,7 +124,7 @@ rm -rf %{pypi_name}.egg-info
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
-rm -rf {test-,}requirements.txt
+%py_req_cleanup
 
 
 %build
