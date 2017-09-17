@@ -27,6 +27,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  git
 BuildRequires:  python-babel
+BuildRequires:  openstack-macros
 
 Requires:       python-six
 Requires:       python-stevedore
@@ -107,7 +108,6 @@ BuildRequires:  python-alembic
 BuildRequires:  python-sqlalchemy-utils
 
 
-
 %description doc
 A library to do [jobs, tasks, flows] in a HA manner using
 different backends to be used with OpenStack projects.
@@ -123,7 +123,7 @@ rm -rf %{pypi_name}.egg-info
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
-rm -rf {test-,}requirements.txt
+%py_req_cleanup
 
 
 %build
