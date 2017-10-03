@@ -6,6 +6,10 @@
 
 %global pypi_name taskflow
 
+%global common_desc \
+A library to do [jobs, tasks, flows] in a HA manner using \
+different backends to be used with OpenStack projects.
+
 Name:           python-%{pypi_name}
 Version:        XXX
 Release:        XXX
@@ -17,8 +21,7 @@ Source0:        https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstr
 BuildArch:      noarch
 
 %description
-A library to do [jobs, tasks, flows] in a HA manner using
-different backends to be used with OpenStack projects.
+%{common_desc}
 
 
 %package -n python2-%{pypi_name}
@@ -49,8 +52,7 @@ Requires:       python-cachetools >= 1.1.0
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
 %description -n python2-%{pypi_name}
-A library to do [jobs, tasks, flows] in a HA manner using
-different backends to be used with OpenStack projects.
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n python3-%{pypi_name}
@@ -79,8 +81,7 @@ Requires:       python3-cachetools >= 1.1.0
 
 
 %description -n python3-%{pypi_name}
-A library to do [jobs, tasks, flows] in a HA manner using
-different backends to be used with OpenStack projects.
+%{common_desc}
 %endif
 
 
@@ -109,8 +110,8 @@ BuildRequires:  python-sqlalchemy-utils
 
 
 %description doc
-A library to do [jobs, tasks, flows] in a HA manner using
-different backends to be used with OpenStack projects.
+%{common_desc}
+
 This package contains the associated documentation.
 
 %prep
