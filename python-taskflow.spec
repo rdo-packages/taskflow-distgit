@@ -27,27 +27,36 @@ BuildArch:      noarch
 %package -n python2-%{pypi_name}
 Summary:        Taskflow structured state management library
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
+BuildRequires:  python2-pbr
 BuildRequires:  git
-BuildRequires:  python-babel
+BuildRequires:  python2-babel
 BuildRequires:  openstack-macros
 
-Requires:       python-six
-Requires:       python-stevedore
+Requires:       python2-six
+Requires:       python2-stevedore
+Requires:       python2-networkx-core
+Requires:       python2-oslo-serialization >= 2.18.0
+Requires:       python2-oslo-utils >= 3.33.0
+Requires:       python2-debtcollector
+Requires:       python2-automaton >= 1.9.0
+Requires:       python2-futurist >= 1.2.0
+Requires:       python2-fasteners >= 0.7
+Requires:       python2-tenacity >= 3.2.1
+%if 0%{?fedora} > 0
+Requires:       python2-futures
+Requires:       python2-jsonschema
+Requires:       python2-enum34
+Requires:       python2-contextlib2 >= 0.4.0
+Requires:       python2-cachetools >= 2.0.0
+Requires:       python2-networkx >= 1.10
+%else
 Requires:       python-futures
-Requires:       python-networkx-core
-Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-jsonschema
 Requires:       python-enum34
-Requires:       python-debtcollector
-Requires:       python-automaton >= 0.5.0
-Requires:       python-networkx >= 1.10
-Requires:       python-futurist >= 0.11.0
-Requires:       python-fasteners >= 0.7
-Requires:       python-tenacity >= 3.2.1
 Requires:       python-contextlib2 >= 0.4.0
-Requires:       python-cachetools >= 1.1.0
+Requires:       python-cachetools >= 2.0.0
+Requires:       python2-networkx >= 1.10
+%endif
 
 %{?python_provide:%python_provide python2-%{pypi_name}}
 
@@ -64,18 +73,18 @@ BuildRequires:  python3-babel
 Requires:       python3-six
 Requires:       python3-stevedore
 Requires:       python3-networkx-core
-Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 3.20.0
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-jsonschema
 Requires:       python3-enum34
 Requires:       python3-debtcollector
-Requires:       python3-automaton >= 0.5.0
+Requires:       python3-automaton >= 1.9.0
 Requires:       python3-networkx >= 1.10
-Requires:       python3-futurist >= 0.11.0
+Requires:       python3-futurist >= 1.2.0
 Requires:       python3-fasteners >= 0.7
 Requires:       python3-tenacity >= 3.2.1
 Requires:       python3-contextlib2 >= 0.4.0
-Requires:       python3-cachetools >= 1.1.0
+Requires:       python3-cachetools >= 2.0.0
 
 %{?python_provide:%python_provide python3-%{pypi_name}}
 
@@ -87,26 +96,38 @@ Requires:       python3-cachetools >= 1.1.0
 
 %package doc
 Summary:          Documentation for Taskflow
-BuildRequires:  python-openstackdocstheme
-BuildRequires:  python-sphinx
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinx
 BuildRequires:  graphviz
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-stevedore
+BuildRequires:  python2-oslo-utils
+BuildRequires:  python2-stevedore
+BuildRequires:  python2-oslo-serialization
+BuildRequires:  python2-futurist
+BuildRequires:  python2-fasteners
+BuildRequires:  python2-automaton
+BuildRequires:  python2-kombu
+BuildRequires:  python2-tenacity
+%if 0%{?fedora} > 0
+BuildRequires:  python2-enum34
+BuildRequires:  python2-contextlib2
+BuildRequires:  python2-jsonschema
+BuildRequires:  python2-redis
+BuildRequires:  python2-cachetools
+BuildRequires:  python2-alembic
+BuildRequires:  python2-kazoo
+BuildRequires:  python2-networkx
+BuildRequires:  python2-sqlalchemy-utils
+%else
 BuildRequires:  python-enum34
-BuildRequires:  python-oslo-serialization
-BuildRequires:  python-futurist
-BuildRequires:  python-fasteners
 BuildRequires:  python-contextlib2
 BuildRequires:  python-jsonschema
-BuildRequires:  python-automaton
-BuildRequires:  python-kombu
-BuildRequires:  python-networkx
-BuildRequires:  python-kazoo
 BuildRequires:  python-redis
 BuildRequires:  python-cachetools
-BuildRequires:  python-tenacity
 BuildRequires:  python-alembic
+BuildRequires:  python-kazoo
+BuildRequires:  python-networkx
 BuildRequires:  python-sqlalchemy-utils
+%endif
 
 
 %description doc
