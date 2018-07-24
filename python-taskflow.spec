@@ -43,7 +43,7 @@ Requires:       python2-debtcollector
 Requires:       python2-automaton >= 1.9.0
 Requires:       python2-futurist >= 1.2.0
 Requires:       python2-fasteners >= 0.7
-Requires:       python2-tenacity >= 3.2.1
+Requires:       python2-tenacity >= 4.4.0 
 %if 0%{?fedora} > 0
 Requires:       python2-enum34
 Requires:       python2-contextlib2 >= 0.4.0
@@ -80,7 +80,7 @@ Requires:       python3-automaton >= 1.9.0
 Requires:       python3-networkx >= 1.10
 Requires:       python3-futurist >= 1.2.0
 Requires:       python3-fasteners >= 0.7
-Requires:       python3-tenacity >= 3.2.1
+Requires:       python3-tenacity >= 4.4.0 
 Requires:       python3-contextlib2 >= 0.4.0
 Requires:       python3-cachetools >= 2.0.0
 
