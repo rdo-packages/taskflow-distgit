@@ -1,8 +1,15 @@
-%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-
-%if 0%{?fedora}
-%global with_python3 1
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
 %endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global pypi_name taskflow
 
@@ -24,106 +31,73 @@ BuildArch:      noarch
 %{common_desc}
 
 
-%package -n python2-%{pypi_name}
+%package -n python%{pyver}-%{pypi_name}
 Summary:        Taskflow structured state management library
-BuildRequires:  python2-devel
-BuildRequires:  python2-pbr
+%{?python_provide:%python_provide python%{pyver}-%{pypi_name}}
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-pbr
 BuildRequires:  git
-BuildRequires:  python2-babel
+BuildRequires:  python%{pyver}-babel
 BuildRequires:  openstack-macros
 
-Requires:       python2-cachetools >= 2.0.0
-Requires:       python2-futures
-Requires:       python2-jsonschema
-Requires:       python2-six
-Requires:       python2-stevedore
-Requires:       python2-oslo-serialization >= 2.18.0
-Requires:       python2-oslo-utils >= 3.33.0
-Requires:       python2-debtcollector
-Requires:       python2-automaton >= 1.9.0
-Requires:       python2-futurist >= 1.2.0
-Requires:       python2-fasteners >= 0.7
-Requires:       python2-tenacity >= 4.4.0
-%if 0%{?fedora} > 0
-Requires:       python2-enum34
-Requires:       python2-contextlib2 >= 0.4.0
-Requires:       python2-networkx >= 1.10
-Requires:       python2-networkx-core
-%else
+Requires:       python%{pyver}-cachetools >= 2.0.0
+Requires:       python%{pyver}-futures
+Requires:       python%{pyver}-jsonschema
+Requires:       python%{pyver}-six
+Requires:       python%{pyver}-stevedore
+Requires:       python%{pyver}-oslo-serialization >= 2.18.0
+Requires:       python%{pyver}-oslo-utils >= 3.33.0
+Requires:       python%{pyver}-debtcollector
+Requires:       python%{pyver}-automaton >= 1.9.0
+Requires:       python%{pyver}-futurist >= 1.2.0
+Requires:       python%{pyver}-fasteners >= 0.7
+Requires:       python%{pyver}-tenacity >= 4.4.0
+Requires:       python%{pyver}-contextlib2 >= 0.4.0
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:       python-enum34
-Requires:       python-contextlib2 >= 0.4.0
 Requires:       python-networkx >= 1.10
 Requires:       python-networkx-core
+%else
+Requires:       python%{pyver}-networkx >= 1.10
+Requires:       python%{pyver}-networkx-core
 %endif
 
-%{?python_provide:%python_provide python2-%{pypi_name}}
-
-%description -n python2-%{pypi_name}
+%description -n python%{pyver}-%{pypi_name}
 %{common_desc}
-
-%if 0%{?with_python3}
-%package -n python3-%{pypi_name}
-Summary:        Taskflow structured state management library
-BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
-BuildRequires:  python3-babel
-
-Requires:       python3-six
-Requires:       python3-stevedore
-Requires:       python3-networkx-core
-Requires:       python3-oslo-serialization >= 2.18.0
-Requires:       python3-oslo-utils >= 3.33.0
-Requires:       python3-jsonschema
-Requires:       python3-enum34
-Requires:       python3-debtcollector
-Requires:       python3-automaton >= 1.9.0
-Requires:       python3-networkx >= 1.10
-Requires:       python3-futurist >= 1.2.0
-Requires:       python3-fasteners >= 0.7
-Requires:       python3-tenacity >= 4.4.0
-Requires:       python3-contextlib2 >= 0.4.0
-Requires:       python3-cachetools >= 2.0.0
-
-%{?python_provide:%python_provide python3-%{pypi_name}}
-
-
-%description -n python3-%{pypi_name}
-%{common_desc}
-%endif
-
 
 %package doc
 Summary:          Documentation for Taskflow
-BuildRequires:  python2-alembic
-BuildRequires:  python2-cachetools
-BuildRequires:  python2-jsonschema
-BuildRequires:  python2-openstackdocstheme
-BuildRequires:  python2-sphinx
+BuildRequires:  python%{pyver}-alembic
+BuildRequires:  python%{pyver}-cachetools
+BuildRequires:  python%{pyver}-jsonschema
+BuildRequires:  python%{pyver}-openstackdocstheme
+BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  graphviz
-BuildRequires:  python2-oslo-utils
-BuildRequires:  python2-stevedore
-BuildRequires:  python2-oslo-serialization
-BuildRequires:  python2-futurist
-BuildRequires:  python2-fasteners
-BuildRequires:  python2-automaton
-BuildRequires:  python2-kombu
-BuildRequires:  python2-tenacity
-%if 0%{?fedora} > 0
-BuildRequires:  python2-enum34
-BuildRequires:  python2-contextlib2
-BuildRequires:  python2-redis
-BuildRequires:  python2-kazoo
-BuildRequires:  python2-networkx
-BuildRequires:  python2-sqlalchemy-utils
-%else
+BuildRequires:  python%{pyver}-oslo-utils
+BuildRequires:  python%{pyver}-stevedore
+BuildRequires:  python%{pyver}-oslo-serialization
+BuildRequires:  python%{pyver}-futurist
+BuildRequires:  python%{pyver}-fasteners
+BuildRequires:  python%{pyver}-automaton
+BuildRequires:  python%{pyver}-kombu
+BuildRequires:  python%{pyver}-tenacity
+BuildRequires:  python%{pyver}-contextlib2
+
+# Handle python2 exception
+%if %{pyver} == 2
 BuildRequires:  python-enum34
-BuildRequires:  python-contextlib2
 BuildRequires:  python-redis
 BuildRequires:  python-kazoo
 BuildRequires:  python-networkx
 BuildRequires:  python-sqlalchemy-utils
+%else
+BuildRequires:  python%{pyver}-redis
+BuildRequires:  python%{pyver}-kazoo
+BuildRequires:  python%{pyver}-networkx
+BuildRequires:  python%{pyver}-sqlalchemy-utils
 %endif
-
 
 %description doc
 %{common_desc}
@@ -144,36 +118,21 @@ rm -rf %{pypi_name}.egg-info
 
 
 %build
-%py2_build
-%if 0%{?with_python3}
-%py3_build
-%endif
+%{pyver_build}
 # generate html docs
-%{__python2} setup.py build_sphinx -b html
-# remove the sphinx-build leftovers
+%{pyver_bin} setup.py build_sphinx -b html
+# remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 
 
 %install
-%py2_install
-%if 0%{?with_python3}
-%py3_install
-%endif
+%{pyver_install}
 
-
-%files -n python2-%{pypi_name}
+%files -n python%{pyver}-%{pypi_name}
 %doc README.rst
 %license LICENSE
-%{python2_sitelib}/%{pypi_name}
-%{python2_sitelib}/%{pypi_name}-*.egg-info
-
-%if 0%{?with_python3}
-%files -n python3-%{pypi_name}
-%doc README.rst
-%license LICENSE
-%{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-*.egg-info
-%endif
+%{pyver_sitelib}/%{pypi_name}
+%{pyver_sitelib}/%{pypi_name}-*.egg-info
 
 %files doc
 %doc doc/build/html
