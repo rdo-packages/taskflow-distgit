@@ -13,6 +13,8 @@
 
 %global pypi_name taskflow
 
+%global with_doc 1
+
 %global common_desc \
 A library to do [jobs, tasks, flows] in a HA manner using \
 different backends to be used with OpenStack projects.
@@ -67,6 +69,7 @@ Requires:       python%{pyver}-networkx-core
 %description -n python%{pyver}-%{pypi_name}
 %{common_desc}
 
+%if 0%{?with_doc}
 %package doc
 Summary:          Documentation for Taskflow
 BuildRequires:  python%{pyver}-alembic
@@ -103,6 +106,7 @@ BuildRequires:  python%{pyver}-sqlalchemy-utils
 %{common_desc}
 
 This package contains the associated documentation.
+%endif
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
@@ -119,11 +123,13 @@ rm -rf %{pypi_name}.egg-info
 
 %build
 %{pyver_build}
+
+%if 0%{?with_doc}
 # generate html docs
 %{pyver_bin} setup.py build_sphinx -b html
 # remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
-
+%endif
 
 %install
 %{pyver_install}
@@ -134,8 +140,10 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %{pyver_sitelib}/%{pypi_name}
 %{pyver_sitelib}/%{pypi_name}-*.egg-info
 
+%if 0%{?with_doc}
 %files doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %changelog
