@@ -52,11 +52,12 @@ Requires:       python%{pyver}-debtcollector
 Requires:       python%{pyver}-automaton >= 1.9.0
 Requires:       python%{pyver}-futurist >= 1.2.0
 Requires:       python%{pyver}-fasteners >= 0.7
+Requires:       python%{pyver}-pbr >= 2.0.0
 Requires:       python%{pyver}-tenacity >= 4.4.0
-Requires:       python%{pyver}-contextlib2 >= 0.4.0
 
 # Handle python2 exception
 %if %{pyver} == 2
+Requires:       python%{pyver}-contextlib2 >= 0.4.0
 Requires:       python-enum34
 Requires:       python-futures
 Requires:       python-networkx >= 1.10
@@ -86,10 +87,10 @@ BuildRequires:  python%{pyver}-fasteners
 BuildRequires:  python%{pyver}-automaton
 BuildRequires:  python%{pyver}-kombu
 BuildRequires:  python%{pyver}-tenacity
-BuildRequires:  python%{pyver}-contextlib2
 
 # Handle python2 exception
 %if %{pyver} == 2
+BuildRequires:  python%{pyver}-contextlib2
 BuildRequires:  python-enum34
 BuildRequires:  python-redis
 BuildRequires:  python-kazoo
