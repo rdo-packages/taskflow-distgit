@@ -7,7 +7,7 @@
 %global pypi_name taskflow
 
 Name:           python-%{pypi_name}
-Version:        2.14.1
+Version:        2.14.2
 Release:        1%{?dist}
 Summary:        Taskflow structured state management library
 
@@ -164,6 +164,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Thu Apr 18 2019 RDO <dev@lists.rdoproject.org> 2.14.2-1
+- Update to 2.14.2
+
 * Tue Nov 21 2017 RDO <dev@lists.rdoproject.org> 2.14.1-1
 - Update to 2.14.1
 
