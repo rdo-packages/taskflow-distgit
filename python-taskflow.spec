@@ -48,7 +48,6 @@ Requires:       python%{pyver}-six
 Requires:       python%{pyver}-stevedore
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
-Requires:       python%{pyver}-debtcollector
 Requires:       python%{pyver}-automaton >= 1.9.0
 Requires:       python%{pyver}-futurist >= 1.2.0
 Requires:       python%{pyver}-fasteners >= 0.7
