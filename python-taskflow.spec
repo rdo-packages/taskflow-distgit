@@ -147,3 +147,4 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/taskflow/commit/?id=fc401959ecedf2b740c3e3156649655c12f2c239
