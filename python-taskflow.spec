@@ -50,7 +50,7 @@ Requires:       python%{pyver}-oslo-serialization >= 2.18.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
 Requires:       python%{pyver}-automaton >= 1.9.0
 Requires:       python%{pyver}-futurist >= 1.2.0
-Requires:       python%{pyver}-fasteners >= 0.7
+Requires:       python%{pyver}-fasteners >= 0.7.0
 Requires:       python%{pyver}-pbr >= 2.0.0
 Requires:       python%{pyver}-tenacity >= 4.4.0
 
@@ -59,10 +59,10 @@ Requires:       python%{pyver}-tenacity >= 4.4.0
 Requires:       python%{pyver}-contextlib2 >= 0.4.0
 Requires:       python-enum34
 Requires:       python-futures
-Requires:       python-networkx >= 1.10
+Requires:       python-networkx >= 2.1.0
 Requires:       python-networkx-core
 %else
-Requires:       python%{pyver}-networkx >= 1.10
+Requires:       python%{pyver}-networkx >= 2.1.0
 Requires:       python%{pyver}-networkx-core
 %endif
 
