@@ -44,7 +44,6 @@ Requires:       python3-pbr >= 2.0.0
 Requires:       python3-tenacity >= 6.0.0
 Requires:       python3-pydot >= 1.2.4
 Requires:       python3-networkx >= 2.1.0
-Requires:       python3-networkx-core
 
 %description -n python3-%{pypi_name}
 %{common_desc}
