@@ -41,7 +41,7 @@ Requires:       python3-automaton >= 1.9.0
 Requires:       python3-futurist >= 1.2.0
 Requires:       python3-fasteners >= 0.7.0
 Requires:       python3-pbr >= 2.0.0
-Requires:       python3-tenacity >= 4.4.0
+Requires:       python3-tenacity >= 6.0.0
 Requires:       python3-pydot >= 1.2.4
 Requires:       python3-networkx >= 2.1.0
 Requires:       python3-networkx-core
