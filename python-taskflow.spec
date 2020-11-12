@@ -40,7 +40,7 @@ Summary:        Taskflow structured state management library
 %{?python_provide:%python_provide python3-%{pypi_name}}
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-babel
 BuildRequires:  openstack-macros
 
