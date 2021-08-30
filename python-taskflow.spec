@@ -96,8 +96,6 @@ This package contains the associated documentation.
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
-# TODO(apevec) remove once python-networking subpackaging is fixed
-sed -i /networkx.drawing/d taskflow/types/graph.py
 
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
