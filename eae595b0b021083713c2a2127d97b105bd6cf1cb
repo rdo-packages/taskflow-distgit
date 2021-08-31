@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd75d12b_625692b5",
+        "filename": "python-taskflow.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2021-08-31T08:41:05Z",
+      "side": 0,
+      "message": "sigh, need TODO dashboard to keep eye on all of them, this was Apr 2016:\n\"Remove dependency on networkx.drawing\nRevist once python-networkx subpackaging is fixed.\"",
+      "revId": "eae595b0b021083713c2a2127d97b105bd6cf1cb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    }
+  ]
+}
