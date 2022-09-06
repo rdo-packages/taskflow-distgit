@@ -46,13 +46,12 @@ BuildRequires:  openstack-macros
 
 Requires:       python3-cachetools >= 2.0.0
 Requires:       python3-jsonschema
-Requires:       python3-six
 Requires:       python3-stevedore
 Requires:       python3-oslo-serialization >= 2.18.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-automaton >= 1.9.0
 Requires:       python3-futurist >= 1.2.0
-Requires:       python3-fasteners >= 0.7.0
+Requires:       python3-fasteners >= 0.17.3
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-tenacity >= 6.0.0
 Requires:       python3-pydot >= 1.2.4
