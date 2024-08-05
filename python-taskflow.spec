@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
+%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global pypi_name taskflow
@@ -11,7 +11,7 @@ A library to do [jobs, tasks, flows] in a HA manner using \
 different backends to be used with OpenStack projects.
 
 Name:           python-%{pypi_name}
-Version:        5.1.0
+Version:        5.1.1
 Release:        1%{?dist}
 Summary:        Taskflow structured state management library
 
@@ -130,6 +130,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %changelog
+* Mon Aug 05 2024 RDO <dev@lists.rdoproject.org> 5.1.1-1
+- Update to 5.1.1
+
 * Wed Mar 08 2023 RDO <dev@lists.rdoproject.org> 5.1.0-1
 - Update to 5.1.0
 
