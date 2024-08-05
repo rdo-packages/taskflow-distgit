@@ -1,0 +1,8 @@
+Code-Review+2: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 05 Aug 2024 07:52:08 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/taskflow-distgit/+/53993
+Project: openstack/taskflow-distgit
+Branch: refs/heads/antelope-rdo
