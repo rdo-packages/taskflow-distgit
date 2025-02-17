@@ -1,4 +1,4 @@
-%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
@@ -82,6 +82,7 @@ sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 sed -i '/doc8 doc\/source/d' tox.ini
+sed -i '/sphinx-build/ s/-W//' tox.ini
 
 # Exclude some bad-known BRs
 for pkg in %{excluded_brs};do
